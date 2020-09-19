@@ -1,0 +1,59 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col content mt-6  animated slideInRight"   [formGroup]="topform">
+            <button  class="btn blue right" *ngIf="!route.url.includes('edit');" (click)="Mainpage()">Mainpage</button>
+        <div class="input-field col s10 m8 l8 ml-3" *ngIf="!route.url.includes('update');">
+            <input type="text" #user [(ngModel)]="username" formControlName="username">
+            <label>Your name</label>
+            <mat-error *ngIf="topform.get('username').errors?.required" class="ml-2">*username Field is Required</mat-error>
+            <mat-error *ngIf="topform.get('username').errors?.maxlength" class="ml-2">username no must have a 10 characters only</mat-error>
+            <mat-error *ngIf="topform.get('username').errors?.minlength" class="ml-2">username no must have a min of 4 characters</mat-error>
+            <mat-error *ngIf="topform.get('username').errors?.pattern" class="ml-2">username no must have a characters only</mat-error>
+        </div>
+
+    <!--For Update-->
+    <div class="input-field col s10 m8 l8 ml-3" *ngIf="!route.url.includes('edit');">
+        <input type="text" #user [(ngModel)]="username" formControlName="username">
+        <mat-error *ngIf="topform.get('username').errors?.required" class="ml-2">*username Field is Required</mat-error>
+        <mat-error *ngIf="topform.get('username').errors?.maxlength" class="ml-2">username no must have a 10 characters only</mat-error>
+        <mat-error *ngIf="topform.get('username').errors?.minlength" class="ml-2">username no must have a min of 4 characters</mat-error>
+        <mat-error *ngIf="topform.get('username').errors?.pattern" class="ml-2">username no must have a characters only</mat-error>
+    </div>
+
+
+        <div class="col s12 m8 l8 works  mt-2"  >
+            <label *ngFor="let wor of works;" class="col s12 mt-4">
+            <input type="checkbox" [id]="wor"   formControlName="skill"  value="{{wor}}"  (change)="addworks($event)">
+            <span>{{wor}}</span>
+            </label>
+        </div>
+        <div class="col s12 m12 l12" *ngIf="route.url.includes('edit')">
+            <p>Update Your Profile</p>
+            <input type="file" #profile (change)="upload($event)" style="display:none;" accept="image/*">
+            <button class="btn blue" (click)="profile.click()"><i class="material-icons large">account_circle</i></button>
+        </div>
+
+        <div class="col s12 m12 l12" *ngIf="!route.url.includes('edit')&&!hideonupdate;">
+            <p>Update Your Profile</p>
+            <input type="file" #profile (change)="updatefile($event)" style="display:none;" accept="image/*">
+            <button class="btn green" (click)="profile.click()"><i class="material-icons large">account_circle</i></button>
+        </div>
+
+        <div class="col s8 m8 l8 preview  mt-2" *ngIf="previewurl!=''">
+            <img src="{{previewurl}}" class="imgpreview mt-4" accept="image/*">
+        </div>
+        <!--for update-->
+        <div class="col s8 m8 l8 preview  mt-2" *ngIf="!route.url.includes('edit')&&!hideonupdate;">
+            <img src="{{userprofile}}" class="imgpreview mt-4" accept="image/*">
+        </div>
+
+        <div class="col s12 m12 l12 mt-3">
+        <button  class="btn blue" *ngIf="!wait&&route.url.includes('edit');" [class.disabled]="topform.invalid||loader" (click)="uploadtopinfo()">Save</button>
+           <!--while on update-->
+           <button  class="btn blue right" *ngIf="!route.url.includes('edit');" (click)="skip()">skip</button>
+           <button  class="btn green" *ngIf="!wait&&!route.url.includes('edit');" [class.disabled]="loader" (click)="uploadtopinfo()">Update</button>
+        <button  class="btn blue" *ngIf="wait">Please wait...</button>
+        </div>
+    </div>
+    </div>
+</div>

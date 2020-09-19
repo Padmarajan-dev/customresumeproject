@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis|Kaushan+Script|Teko&display=swap');
+@mixin box($ml) {
+    
+    height:46em;
+    //border:1px solid green;
+    background-color:white;
+    padding:1em;
+    overflow-y: scroll;
+    max-width:100%;
+@media only screen and (min-width: 1200px)
+{
+    max-width:50%; 
+    margin-left:$ml;
+}
+}
+
+%star-rating
+{
+    position: fixed;
+    height:18em;
+    //box-shadow:5px 5px 8px black;
+    padding:10px;
+    width:54%;
+    align-items: center;
+    z-index:99999;
+    margin-left:25%;
+    margin-top:20%;
+    opacity:4;
+    background-color: rgba(248, 246, 241, 0.932);
+    button 
+    {
+  @extend %btnstyle;
+    }
+}
+
+%btnstyle
+{
+    background-color:#fdffff;
+    border-radius:50px;
+    border:1.4px solid #fdfdfd;
+    color: black;
+    font-family: 'Teko', sans-serif;
+    width:10em;
+    &:hover
+    {
+        background-color:#9eacfc;
+    }
+}
+%containerstyle
+{
+    background-color: rgba(180, 235, 240, 0.89);
+    height: 70em;
+}
+%scrollbarstyle
+{
+    ::-webkit-scrollbar
+{
+    background:none;
+    border:none;
+    width:0.4em;
+}
+::-webkit-scrollbar-thumb
+{
+    border-radius:50px;
+    background-color: rgb(175, 161, 161);
+    text-align: center;
+}
+}
+@mixin socialicon($left) {
+    height:28px;
+    width:28px;
+    margin-left:$left;
+    border-radius:20px;
+}

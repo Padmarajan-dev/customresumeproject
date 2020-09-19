@@ -1,0 +1,17 @@
+@import '../commonformstyles';
+.container-fluid
+{
+ @extend %containerstyle;
+ @extend %scrollbarstyle;
+}
+
+.portfolio
+{
+  @include box(25%);
+}
+.mainbox
+{
+    height:26em;
+    overflow-x:hidden;
+    overflow-y: scroll;
+}

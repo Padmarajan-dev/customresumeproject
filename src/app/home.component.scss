@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Abel|Bellota|Rajdhani&display=swap');
+//it holds some commonstyles
+@import './resumedetailsforms/commonformstyles';
+@import url('https://fonts.googleapis.com/css?family=Darker+Grotesque|Josefin+Slab&display=swap');
+//
+.container-fluid 
+{
+    overflow-x: hidden;
+}
+.btn
+{
+    //for curved btn;
+ @extend %btnstyle;
+ background-color: transparent;
+ color:white;
+}
+.mainbox
+{
+    height:40em;
+    background-image:url('../assets/homebackground.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    p 
+    {
+        font-family: 'Abel', sans-serif;
+        color:white;
+        font-size: 20px;
+        margin-top:8em;
+    }
+}
+
+footer 
+{
+    background-color: rgba(20, 19, 19, 0.74) !important;
+    font-family: 'Darker Grotesque', sans-serif;
+    li 
+    {
+        p 
+        {
+            display:inline-flex;
+        }
+    }
+}
+.card 
+{
+font-family: 'Rajdhani', sans-serif;
+.cardtitle
+{
+    border-bottom: 2px solid greenyellow;
+    padding:2%;
+}
+}
+.fab 
+{
+    font-size: 24px;
+}
+@mixin imagecontstyle($height) {
+    height:$height;
+}
+.gallerybox
+{
+    @include imagecontstyle(33em);
+    padding:8px;
+  .image-container
+  {
+    @include imagecontstyle(14em);
+  }
+}

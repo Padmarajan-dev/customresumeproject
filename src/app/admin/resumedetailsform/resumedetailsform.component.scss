@@ -1,0 +1,50 @@
+@import '../../resumedetailsforms/commonformstyles';
+.img-btn
+{
+  box-shadow: 2px 2px 6px #e0e0e0;
+}
+.container-fluid
+{
+@extend %containerstyle;
+}
+.content
+{
+    @include box(28%);
+    margin-top:5em;
+    overflow: hidden;
+    input[type="text"]
+    {
+      @extend %commontextboxstyles;
+    }
+    textarea
+    {
+       @extend %commontextboxstyles;
+       height:6em;
+       border-radius:2.3px !important;
+       resize: none;
+    }
+
+    %commontextboxstyles
+    {
+        border: 0;
+        border-radius:5px;
+        text-align: center;   
+        box-shadow: 2px 2px 6px #e0e0e0;
+        margin-top: 4%;
+        &:focus
+        {
+          border: 0;
+        }
+    }
+
+}
+::placeholder
+{
+  color: rgba(129, 120, 120, 0.89);
+}
+.save-btn
+{
+  width: 20%;
+  height: 30%;
+  border-radius: 2%;
+}

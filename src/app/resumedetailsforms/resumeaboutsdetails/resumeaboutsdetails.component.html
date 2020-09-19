@@ -1,0 +1,87 @@
+<div class="container-fluid">
+    <div class="row"  *ngIf="!router.url.includes('update')">
+        <form [formGroup]="aboutus">
+        <div class="col content mt-6 animated slideInRight">
+        <h6 class="ml-3">Your Objective</h6>
+            <div class="col s10 m8 l10 objective">
+            <textarea formControlName="objective" cdkTextareaAutosize cdkAutosizeMinRows="2" (keyup)="charactercount($event)"  cdkAutosizeMaxRows="5" placeholder="Type Your Objective Here..." style="border:1px solid rgb(173, 173, 173)"></textarea>
+            <p class="left warning" *ngIf="characterlength>500">You reached the maximum character count</p>
+            <p class="right" *ngIf="characterlength<500">{{characterlength}}/500</p>
+            <mat-error *ngIf="aboutus.get('objective').errors?.required" class="ml-2">*Objective Field is Required</mat-error>
+            </div>
+            <div class="col s10 m8 l10 objective ">
+                <h6 class="ml-1">Address</h6>
+            <textarea formControlName="address"  cdkTextareaAutosize cdkAutosizeMinRows="1" (keyup)="charactercount2($event)"  cdkAutosizeMaxRows="4" placeholder="Type Your Address Here..." style="border:1px solid rgb(173, 173, 173)"></textarea>
+                <p class="left warning" *ngIf="characterlength2>300">You reached the maximum character count</p>
+                <p class="right" *ngIf="characterlength2<300">{{characterlength2}}/300</p>
+                <mat-error *ngIf="aboutus.get('address').errors?.required" class="ml-2">*Address Field is Required</mat-error>
+            </div>
+            <div class="col s5 m3 l3 ml-2 input-field personal-details">
+                <label>Age</label>
+               <input type="number" min="1" max="150" formControlName="age">
+               <mat-error *ngIf="aboutus.get('age').errors?.required" class="ml-1">*Age Field is Required</mat-error>
+            </div>
+            <div class="col s8 m6 l4 ml-3 input-field personal-details">
+                <label>Mobile</label>
+               <input type="text" formControlName="mobile">
+               <mat-error *ngIf="aboutus.get('mobile').errors?.required" class="ml-2">*Mobile Field is Required</mat-error>
+               <mat-error *ngIf="aboutus.get('mobile').errors?.maxlength" class="ml-2">Mobile no must have a 10 characters only</mat-error>
+               <mat-error *ngIf="aboutus.get('mobile').errors?.pattern" class="ml-2">Mobile no must have a Numbers only</mat-error>
+            </div>
+            <div class="col s8 m6 l4 ml-3 input-field personal-details">
+                <label>Email</label>
+               <input type="text" formControlName="email">
+               <mat-error *ngIf="aboutus.get('email').errors?.required" class="ml-2">*Email Field is Required</mat-error>
+               <mat-error *ngIf="aboutus.get('email').errors?.email" class="ml-2">Enter a valid email-id</mat-error>
+            </div>
+            <div class="col s12 m12 l12 mt-3">
+                <button class="btn blue" *ngIf="!wait" (click)="saveaboutus()" [disabled]="aboutus.invalid">Save</button>
+                <button  class="btn blue" *ngIf="wait">Please wait...</button>
+            </div>
+        </div>
+        </form>
+    </div>
+    <ng-container *ngIf="router.url.includes('update')">
+        <div class="row">
+            <form [formGroup]="aboutus">
+            <div class="col content mt-6 animated slideInRight">
+            <h6 class="ml-3">Your Objective</h6>
+                <div class="col s10 m8 l10 objective">
+                <textarea formControlName="objective" cdkTextareaAutosize cdkAutosizeMinRows="2" (keyup)="charactercount($event)"  cdkAutosizeMaxRows="5" placeholder="Type Your Objective Here..."  style="border:1px solid rgb(173, 173, 173)"></textarea>
+                <p class="left warning" *ngIf="characterlength>500">You reached the maximum character count</p>
+                <p class="right" *ngIf="characterlength<500">{{characterlength}}/500</p>
+                <mat-error *ngIf="aboutus.get('objective').errors?.required" class="ml-2">*Objective Field is Required</mat-error>
+                </div>
+                <div class="col s10 m8 l10 objective ">
+                    <h6 class="ml-1">Address</h6>
+                <textarea formControlName="address"  cdkTextareaAutosize cdkAutosizeMinRows="1" (keyup)="charactercount2($event)"  cdkAutosizeMaxRows="4" placeholder="Type Your Address Here..." style="border:1px solid rgb(173, 173, 173)"></textarea>
+                    <p class="left warning" *ngIf="characterlength2>300">You reached the maximum character count</p>
+                    <p class="right" *ngIf="characterlength2<300">{{characterlength2}}/300</p>
+                    <mat-error *ngIf="aboutus.get('address').errors?.required" class="ml-2">*Address Field is Required</mat-error>
+                </div>
+                <div class="col s5 m3 l3 ml-2 input-field personal-details">
+                   <input type="number" min="1" max="150" formControlName="age">
+                   <mat-error *ngIf="aboutus.get('age').errors?.required" class="ml-1">*Age Field is Required</mat-error>
+                </div>
+                <div class="col s8 m6 l4 ml-3 input-field personal-details">
+                   <input type="text" formControlName="mobile">
+                   <mat-error *ngIf="aboutus.get('mobile').errors?.required" class="ml-2">*Mobile Field is Required</mat-error>
+                   <mat-error *ngIf="aboutus.get('mobile').errors?.maxlength" class="ml-2">Mobile no must have a 10 characters only</mat-error>
+                   <mat-error *ngIf="aboutus.get('mobile').errors?.pattern" class="ml-2">Mobile no must have a Numbers only</mat-error>
+                </div>
+                <div class="col s8 m6 l4 ml-3 input-field personal-details">
+                   <input type="text" formControlName="email">
+                   <mat-error *ngIf="aboutus.get('email').errors?.required" class="ml-2">*Email Field is Required</mat-error>
+                   <mat-error *ngIf="aboutus.get('email').errors?.email" class="ml-2">Enter a valid email-id</mat-error>
+                </div>
+                <div class="col s12 m12 l12 mt-3">
+                    <button class="btn blue" *ngIf="!wait && !router.url.includes('update')" (click)="saveaboutus()" [disabled]="aboutus.invalid">Save</button>
+                    <button class="btn green" *ngIf="!wait && router.url.includes('update')" (click)="saveaboutus()" [disabled]="aboutus.invalid">Update</button>
+                    <button  class="btn blue" *ngIf="wait">Please wait...</button>
+                    <button class="btn blue right"  (click)="skip()" >Skip</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </ng-container>
+</div>

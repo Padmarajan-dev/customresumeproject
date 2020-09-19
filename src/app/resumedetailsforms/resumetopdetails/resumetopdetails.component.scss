@@ -1,0 +1,41 @@
+@import '../commonformstyles';
+.container-fluid
+{
+  @extend %containerstyle;
+  @extend %scrollbarstyle;
+}
+.works
+{
+    height:15em;
+    overflow-y:scroll;
+    overflow-x:hidden;
+checkbox
+{
+    color:rgb(175, 161, 161);
+    align-items:right;
+}
+
+}
+.imgpreview
+{
+    height:200px !important;
+    width:200px !important;
+}
+.preview
+{
+    height:210px !important;
+}
+.content
+{
+    @include box(25%);
+}
+.preview
+{
+    height:30em;
+    img 
+    {
+        height:25em;
+        width:20em;
+    }  
+}
+

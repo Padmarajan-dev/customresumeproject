@@ -1,0 +1,49 @@
+
+    @import url('https://fonts.googleapis.com/css?family=Dosis|Kaushan+Script|Teko&display=swap');
+    .box
+    {
+        height:46em;
+        background-color:white;
+        box-shadow:(6px 2px 2px) #26a69a;
+        z-index:40;
+        h5
+        {
+            font-family: 'Teko', sans-serif;
+        }
+        input 
+        {
+            border-top:1.4px solid #26a69a;
+            border-left:1.4px solid #26a69a;
+            border-right:1.4px solid #26a69a;
+            border-bottom:1.4px solid #26a69a;
+            border-radius:50px;
+            box-shadow:(3px 3px 2px)rgb(184, 167, 167);
+            text-align: center;
+            color: #26a69a
+        }
+       
+    }
+    /*:-ms-input-placeholder
+    {
+        align-content: center;
+    }*/
+    .btn
+    {
+        background:none;
+        border-radius:50px;
+        border:1.4px solid #26a69a;
+        color: black;
+        font-family: 'Teko', sans-serif;
+        width:10em;
+        &:hover
+        {
+            background-color:#3498db
+        }
+    }
+    .container-fluid
+    {
+        background:url('../../../assets/loginbackground.png');
+        background-size:cover;
+        background-repeat:no-repeat;
+        height:93%;
+    }  

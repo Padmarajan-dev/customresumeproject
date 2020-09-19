@@ -1,0 +1,14 @@
+<div>
+</div>
+<div class="chart-wrapper">
+  <p *ngFor="let printables of printable">hello</p>
+    <canvas baseChart 
+    [datasets]="barChartData"
+    [labels]="barChartLabels"
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins"
+    [legend]="barChartLegend"
+    [chartType]="barChartType"
+    [colors]="barChartColor">
+  </canvas>
+</div>

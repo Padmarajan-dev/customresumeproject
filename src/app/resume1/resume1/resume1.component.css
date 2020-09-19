@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,200');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css');
+@import url('./../../../assets/resumetempassets/css/aos.css');
+@import url('./../../../assets/resumetempassets/css//bootstrap.min.css');
+@import url('./../../../assets/resumetempassets/styles/main.css');
+
+.page-header
+{
+background-image: url('./../../../assets/cc-bg-1.jpg');
+}

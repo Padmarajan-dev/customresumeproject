@@ -1,0 +1,74 @@
+<div class="container-fluid">
+    <div class="row">
+            <div class="col s12 m5 l3  center box left">
+                <div class="col s12 m12 l12" >
+               <a (click)="goback()"><i class="material-icons mt-2 left">arrow_back</i></a>
+                </div>
+                <div class="col s12 m10 l10 ml-md-4 ml-l-4 mt-3">
+                    <img src="../../../assets/login-icon.png">
+                    <h5>SignIn</h5>
+                </div>
+                <form  [formGroup]="signinform">
+                <div class="col s12 m10 l10 ml-md-4 ml-l-4 mt-4">
+                <input type="text" formControlName="user" placeholder="username">
+                <mat-error class="left ml-4" 
+                style="color: #da9090" 
+                *ngIf="signinform.get('user').errors?.required">
+                username  Field  is  required.
+                </mat-error>
+                <mat-error class="left" 
+                style="color: #da9090" 
+                *ngIf="signinform.get('user').errors?.minlength">
+                username must have min of 3 characters.
+               </mat-error>
+               <mat-error class="left" 
+             style="color: #da9090" 
+             *ngIf="signinform.get('user').errors?.maxlength">
+             username must have max of 6 characters.
+                </mat-error>
+                <mat-error class="left" 
+             style="color: #da9090" 
+             *ngIf="signinform.get('user').errors?.pattern">
+             username must be in characters.
+                 </mat-error>
+               </div>
+               <div class="col s12 m10 l10 ml-md-4 ml-l-4 mt-4">
+                <input type="text" formControlName="Email" placeholder="Email-id">
+                <mat-error class="left ml-4" 
+                style="color: #da9090" 
+                *ngIf="signinform.get('Email').errors?.required">
+                Email Field is required.
+             </mat-error>
+             <mat-error class="left" 
+                style="color: #da9090" 
+                *ngIf="signinform.get('Email').errors?.email">
+                please Enter A Valid Email address.
+             </mat-error>
+               </div>
+               <div class="col s12 m10 l10 ml-md-4 ml-l-4 mt-4">
+                <input type="text" formControlName="mobile" placeholder="Mobile No">
+                <mat-error class="left ml-4" 
+                style="color: #da9090" 
+                *ngIf="signinform.get('mobile').errors?.required">
+                Mobile No Field is required.
+               </mat-error>
+               <mat-error class="left" 
+             style="color: #da9090" 
+             *ngIf="signinform.get('mobile').errors?.pattern">
+             Mobile No Must be in numbers.
+               </mat-error>
+               <mat-error class="left" 
+          style="color: #da9090" 
+          *ngIf="signinform.get('mobile').errors?.minlength || signinform.get('mobile').errors?.maxlength">
+          please enter a Valid Mobile number.
+               </mat-error>
+               </div>
+               <div class="col s12 m10 l8 ml-md-4 ml-l-6 mt-5">
+                 <button *ngIf="!wait" (click)="signin()"[disabled]="signinform.invalid" class="btn">SignIn</button>
+                 <button *ngIf="wait" class="btn">Please Wait..</button>
+               </div>
+                </form>
+            </div>
+    </div>
+</div>
+

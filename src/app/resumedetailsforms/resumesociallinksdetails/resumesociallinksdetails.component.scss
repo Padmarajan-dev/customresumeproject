@@ -1,0 +1,28 @@
+@import '../commonformstyles';
+.container-fluid
+{
+  @extend %containerstyle;
+  @extend %scrollbarstyle;
+}
+.content
+{
+    @include box(25%);
+}
+.social-icons
+{
+@include socialicon(3em);
+}
+.social-icon
+{
+  @include socialicon(0);
+}
+.skills
+{
+@extend %boxes;
+}
+%boxes
+{
+  height:13em;
+  overflow-y:scroll;
+  overflow-x:hidden;
+}

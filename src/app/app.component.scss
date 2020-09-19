@@ -1,0 +1,17 @@
+@import './resumedetailsforms/commonformstyles';
+.logout
+{
+ @extend %btnstyle;
+}
+.menus li
+{
+    margin-left:(20%/4);
+}
+.preview
+{
+    border-radius:4em;
+}
+.homenav
+{
+    background-color: rgba(44, 37, 37, 0.74) !important;
+}

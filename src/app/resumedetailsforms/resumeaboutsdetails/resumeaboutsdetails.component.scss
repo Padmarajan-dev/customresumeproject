@@ -1,0 +1,37 @@
+@import '../commonformstyles';
+::-webkit-scrollbar
+{
+    background:none;
+    border:none;
+    width:0.2em;
+}
+::-webkit-scrollbar-thumb
+{
+    border-radius:50px;
+    background-color: rgb(175, 161, 161);
+}
+::-webkit-scrollbar-placeholder
+{
+    font:1.8em solid rgb(175, 161, 161);
+    margin-left:12%;
+    text-align: center;
+}
+.objective
+{
+p
+{
+    color: rgb(173, 173, 173);
+}
+}
+mat-error
+{
+    color: rgb(240, 124, 124);  
+}
+.container-fluid
+{
+@extend %containerstyle;
+}
+.content
+{
+    @include box(25%);
+}

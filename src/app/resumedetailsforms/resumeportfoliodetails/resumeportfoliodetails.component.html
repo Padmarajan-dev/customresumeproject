@@ -1,0 +1,38 @@
+<div class="container-fluid">
+    <div class="row  ">
+        <div class="col portfolio mt-6 animated slideInRight" [formGroup]="portfolioform">
+        <div class="col s12 m12 l12 ml-3">
+            <p>PortFolio Images</p>
+            <input type="file" multiple class="hide" (change)="getimages($event)" accept="image/*" #portfolioimages>
+            <button class="btn blue" (click)="portfolioimages.click()"><i class="material-icons">perm_media</i></button>
+        </div>
+        <div *ngIf="imagesurl!=''" class="col s10 m8 l10 mt-4 ml-3 preview-container">
+            <div class="col s12 m3 l3"  >
+            <img src="{{imageurl}}" class="responsive-img mt-4" *ngFor="let imageurl of imagesurl">
+        </div>
+        </div>
+        <div class="col s12 m12 l12 addons">
+        <div class="col  s12 m8 l7 mt-2" formArrayName="descs" *ngFor="let title of gettitlecontrols();let i=index">
+            <p>Portfolio Descprtion {{i+1}}</p>
+            <textarea [formControlName]="i"  cdkTextareaAutosize cdkAutosizeMinRows="2" (keyup)="charactercount($event)"  cdkAutosizeMaxRows="5" placeholder="Enter Your Description Here..." style="border:1px solid rgb(173, 173, 173)"></textarea>
+        </div>  
+        <div class="col  s10 m8 l7 mt-2" formArrayName="titles" *ngFor="let title of gettitlecontrols();let i=index">
+            <p>Website Title {{i+1}}</p>
+            <input type="text" [formControlName]="i"  placeholder="Enter your website Title or Templates Title here">
+        </div>
+        <div class="col s12 m8 l7 mt-2" formArrayName="urls" *ngFor="let url of gettitlecontrols();let i=index">
+            <p>Website Url {{i+1}}</p>
+            <input type="text" [formControlName]="i"  placeholder="Enter your website Url or Templates Url here">
+        </div>
+        </div>
+        <div class="col s12 m12 l12 mt-1" *ngIf="!Router.url.includes('update')">
+            <button class="btn blue" (click)="uploadportfolioform()">Save</button>
+            <button class="btn blue right" (click)="next()">Skip</button>
+        </div>
+        <div class="col s12 m12 l12 mt-1" *ngIf="Router.url.includes('update')">
+            <button class="btn green" (click)="uploadportfolioform()">Update</button>
+            <button class="btn blue right" (click)="skip()">Skip</button>
+        </div>
+    </div>
+    </div>
+</div>

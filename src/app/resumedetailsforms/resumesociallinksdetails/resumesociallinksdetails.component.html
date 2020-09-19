@@ -1,0 +1,35 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col content  mt-6 animated slideInRight">
+            <h6>Add your social Account links here</h6>
+            <div class="col s10 m10 l10 works mt-2 ml-5" *ngFor="let socialmedias of socialmediaslist">
+                <label  class="col s12 mt-2">
+                <input   type="checkbox"   value="{{socialmedias.socialmedia}}"  (change)="addworks(socialmedias.icon,$event)">
+                <span><img  src="{{socialmedias.icon}}" class="social-icons"></span>
+                </label>
+            </div>
+            <div class="col s12 m8 l10">
+                <h6>Social Media Link</h6>
+            </div>
+            <div class="col s10 l10 skills mt-4 ml-2">
+                <div class="col s12 m12 l12" [formGroup]="socialmediaform"  *ngFor="let selectedskill of selectedsocialmedialist;let i=index;">
+                    <div class="col s12 m8 l10 left">
+                        <span>
+                            <img  src="{{selectedskill.icon}}" class="social-icon">
+                        </span>
+                    </div>
+                    <div class="col s12 m8 l10 input-field" formArrayName="links">
+                    <label>Enter your {{selectedskill.socialmedia}} Account link</label>
+                    <input type="text"  [formControlName]="i">
+                    </div>
+                </div>
+                </div>
+                <div class="col s10 m8 l10 input-field ml-2">
+                    <button  *ngIf="!route.url.includes('update')" class="btn blue" (click)="sociallinkdetails()">Save</button>
+                    <button *ngIf="route.url.includes('update')" class="btn green" (click)="sociallinkdetails()">Update</button>
+                    <button *ngIf="route.url.includes('update')" class="btn blue right" (click)="skip()">skip</button>
+                </div>
+        </div>
+    </div>
+</div>

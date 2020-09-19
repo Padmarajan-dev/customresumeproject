@@ -1,0 +1,33 @@
+@import '../commonformstyles';
+.container-fluid
+{
+  @extend %containerstyle;
+  @extend %scrollbarstyle;
+}
+.content
+{
+    @include box(26%);
+    height:20%;
+}
+.works
+{
+  @extend %boxes;
+checkbox
+{
+    color:rgb(175, 161, 161);
+}
+}
+h6
+{
+  font-weight: bold;
+}
+.skills
+{
+@extend %boxes;
+}
+%boxes
+{
+  height:13em;
+  overflow-y:scroll;
+  overflow-x:hidden;
+}

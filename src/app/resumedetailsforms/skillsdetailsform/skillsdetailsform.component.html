@@ -1,0 +1,49 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col content mt-6 animated slideInRight">
+            <h6 class="ml-6">Pick Your Skills here</h6>
+            <div class="col s10 m10 l10 works mt-2 ml-5" *ngIf="!route.url.includes('update')" >
+                <label *ngFor="let skill of skillslist" class="col s12 mt-4">
+                <input type="checkbox"   value="{{skill}}"  (change)="addworks($event)">
+                <span>{{skill}}</span>
+                </label>
+            </div>
+                <!--while on update-->
+            <div class="col s10 m10 l10 works mt-2 ml-5" *ngIf="route.url.includes('update')" >
+                <label *ngFor="let skill of skillslist" class="col s12 mt-4">
+                <input type="checkbox"  [id]="skill"  value="{{skill}}"  (change)="addworks($event)">
+                <span>{{skill}}</span>
+                </label>
+            </div>
+            <div class="col s10 l10 skills mt-2 ml-2" *ngIf="!route.url.includes('update')">
+            <div class="col s12 m12 l12" [formGroup]="skillsformgroup"  *ngFor="let selectedskill of selectedskillslist;let i=index;">
+            <div class="col s10 m8 l10 input-field ml-4">
+                <h6>Skill </h6>
+                <input type="text"  value="{{selectedskill.skill}}" style="color:rgb(175, 161, 161)">
+                <h6>Skill Level</h6>
+                <p class="range-field" formArrayName="levels">
+                    <input type="range" [value]="0" min="0" max="100" [formControlName]="i">
+                </p>
+            </div>
+            </div>
+            </div>
+            <!--while on update-->
+            <div class="col s10 l10 skills mt-2 ml-2" *ngIf="route.url.includes('update')">
+            <div class="col s12 m12 l12" [formGroup]="skillsformgroup"  *ngFor="let selectedskill of selectedskillslist;let i=index;">
+                <div class="col s10 m8 l10 input-field ml-4">
+                    <h6>Skill    <span style="color:rgb(175, 161, 161)">{{selectedskill.skill_lvl}}%</span></h6>
+                    <input type="text"  value="{{selectedskill.skill}}" style="color:rgb(175, 161, 161)">
+                    <h6>Skill Level</h6>
+                    <p class="range-field" formArrayName="levels">
+                        <input type="range" (change)="detect()" [value]="selectedskill.skill_lvl" min="0" max="100" [formControlName]="i">
+                    </p>
+                </div>
+            </div>
+            </div>
+            <div class="col s10 m8 l10 input-field ml-5">
+                <button class="btn green" (click)="skilldetails()">Save</button>
+                <button class="btn blue right"  *ngIf="route.url.includes('update')" (click)="skip()">Skip</button>
+            </div>
+        </div>
+    </div>
+</div>

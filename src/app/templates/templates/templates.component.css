@@ -1,0 +1,31 @@
+@import url('../../../assets/customcss/template.css');
+@import url('https://fonts.googleapis.com/css?family=Simonetta&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Aldrich&display=swap');
+.material-icons{
+    font-size:x-large !important;
+}
+
+.meta
+{
+height:22em;
+background-color:#6ef4e9;
+}
+.detail-title
+{
+    font-family: 'Abhaya Libre', serif;
+    font-weight: bold;
+}
+.collapsible-header
+{
+border-radius:50%;
+}
+.ratingbox
+{
+    height:30em;
+    width:100%;
+    border:1px solid green;
+}
+.flow-text
+{
+    font-family: 'Abhaya Libre', serif;
+}

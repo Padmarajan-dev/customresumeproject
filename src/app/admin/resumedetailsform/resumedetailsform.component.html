@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col content">
+            <div class="col s10 m10 l10">
+                <h5>Resume Details</h5>
+            </div>
+            <form [formGroup]="detailsformgroup">
+            <div class="col s5 m5 l5 input-field">
+                <input type="text" formControlName="resumeid" placeholder="Template Id">
+            </div>
+            <div class="col s10 m8 l8 input-field">
+                <input type="text" formControlName="resumename" placeholder="Template Name">
+            </div>
+            <div class="col s9 m8 l8 input-field">
+                <input type="text"  formControlName="screenshoturl" placeholder="Screenshot Url">
+            </div>
+            <div class="col s12 m18 l8 input-field">
+                <textarea  formControlName="desc" placeholder="Resume Description"></textarea>
+            </div>
+            <div class="col s12 m12 l12 ">
+                <button class="btn save-btn" (click)="resumeformdetails()">Save</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>

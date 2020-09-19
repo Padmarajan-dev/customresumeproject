@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col s12 m12 l12 mt-1" *ngIf="carrierformGroup.invalid" style="color:rgb(160, 149, 149);background-color: #f1c40f;">
+            <p>Please Fill the all Fields</p>
+        </div>
+        <div class="col portfolio mt-3 animated slideInRight">
+            <button class="btn-floating right blue" (click)="addmore()"><i class="material-icons">add</i></button>
+            <div class="col ml-5 mainbox" [formGroup]="carrierformGroup" >
+            <div class="col mt-2" *ngFor="let degree of getdegreecontrols();let i=index">
+            <h6 style="font-weight:bold" class="ml-3">Degree Details {{i+1}}</h6>
+            <div class="col s10 m10 l10 mt-4"  formArrayName="degrees" >
+                <mat-label>Select Your Designation</mat-label>
+                <mat-select [formControlName]="i" placeholder="Select here" #desig (selectionChange)="selected(desig.value)">
+                    <mat-option  *ngFor="let designation of designations" [value]="designation">{{designation}}</mat-option>
+                </mat-select>
+            </div>
+            <div class="col s10 m10 l10 mt-2"  formArrayName="subjects" >
+                <mat-label>Select Your Subject</mat-label>
+                <mat-select [formControlName]="i" placeholder="Select here">
+                    <mat-option *ngFor="let selected of selectedsubjects" [value]="selected">{{selected}}</mat-option>
+                </mat-select>
+            </div>
+            <div class="input-field col s10 m10 l10"  formArrayName="instution">
+                <label>Enter The Instution Name</label>
+                <input type="text" [formControlName]="i">
+            </div>
+            <div class="input-field col s10 m10 l10"  formArrayName="marks">
+                <label>Enter Your Percentage</label>
+                <input type="number" [formControlName]="i" min="0" max="100">
+            </div>
+            <div class="input-field col s10 m10 l10">
+                <h6>Year Span of the Course</h6>
+            </div>
+            <div class="input-field col s5 m15 l4"   formArrayName="yearspanfrom">
+                <label>From</label>
+                <input type="number" [formControlName]="i">
+            </div>
+            <div class="input-field col s5 m15 l4"   formArrayName="yearspanto">
+                <label>To</label>
+                <input type="number" [formControlName]="i">
+            </div>
+            </div>
+           
+        </div>
+        <div class="col s10 m10 l10 ml-5 mt-3">
+            <button class="btn green" [disabled]="carrierformGroup.invalid" *ngIf="!wait" (click)="carrierdetails()">Save</button>
+            <button class="btn green" *ngIf="wait">Please Wait...</button>
+        </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<nav class="dash-nav"> 
+    <div class="nav-wrapper" >
+        <a class="left brand-logo mt-1  ml-2"><img class="logo" src="assets/icons/dashboard.svg"></a>
+        <p class="title ml-6">Dashboard</p>
+    </div>
+  </nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col s12 m5 l3 mt-5  ml-l-6 center" id="website-details">
+          <i class="mt-2"><img class="template" src="assets/icons/log.svg"></i>
+          <p class="title">No users Loggined</p>
+          <p class="data">{{noUsers}}</p>
+        </div>
+        <div class="col s12 m5 l3 mt-5  ml-l-6 center" id="website-details">
+          <i class="mt-2"><img class="template" src="assets/icons/website.svg"></i>
+          <p class="title">No Resume Templates</p>
+          <p class="data">{{noTemplates}}</p>
+        </div>
+        <div class="col s12 m5 l3 mt-5  ml-l-6 center" id="website-details">
+          <i class="mt-2"><img class="template" src="assets/icons/server.svg"></i>
+          <p class="title">No Used Templates</p>
+          <p class="data">{{noTemplates}}</p>
+        </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col l5 s12 mt-2 ml-l-6" id="website-details">
+        <app-users-count></app-users-count>
+      </div>
+      <div class="col l5 s12 mt-2 ml-l-2" id="website-details">
+        <app-template-performance></app-template-performance>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+@import url('../../../assets/resumetempassets_1/css/bootstrap.min.css');
+@import url('../../../assets/resumetempassets_1/font/css/font-awesome.min.css');
+@import url('../../../assets/resumetempassets_1/css/styles.css');
+@import url('../../../assets/resumetempassets_1/css/isotope.css');
+@import url('../../../assets/resumetempassets_1/js/owl-carousel/owl.carousel.css');
+@import url('../../../assets/resumetempassets_1/js/owl-carousel/owl.theme.css');
+@import url('../../../assets/resumetempassets_1/js/owl-carousel/owl.transitions.css');
+@import url('../../../assets/resumetempassets_1/js/fancybox/jquery.fancybox.css');
+@import '../../resumedetailsforms/commonformstyles';
+.portfolio-image
+{
+    height:300px;
+    width:400px;
+}
+.star-rating
+{
+@extend %star-rating;
+}

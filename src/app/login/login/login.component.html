@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <div class="row">
+            <div class="col s12 m5 l3 center box left">
+                <div class="col s12 m12 l12" >
+                    <a routerLink=""><i class="material-icons mt-2 left">arrow_back</i></a>
+                     </div>
+                <div class="col s12 m10 l10 ml-md-4 ml-l-4 mt-3">
+                    <img src="../../../assets/login-icon.png">
+                    <h5>Login</h5>
+                </div>
+                <form (ngSubmit)="login()"  class="center" [formGroup]="loginform">
+                <div class="col s12 m10 l10 ml-md-4 ml-l-3 mt-4">
+                <input type="text" placeholder="username" formControlName="username">
+                <mat-error class="left ml-5" style="color: #d45e5e" *ngIf="loginform.get('username').errors?.required">username Field is required.</mat-error>
+               </div>
+               <div class="col s12 m10 l10 ml-md-4 ml-l-3 mt-4">
+                <input type="text" placeholder="Email-id" formControlName="email">
+                <mat-error class="left ml-5" style="color: #d45e5e" *ngIf="loginform.get('email').errors?.required">Email Field  is required.</mat-error> 
+               </div>
+               <div class="col s12 m10 l8 ml-md-4 ml-l-5 mt-5">
+                 <button class="btn">Login</button>
+               </div>
+               </form>
+               <div class="col s12 m10 l8 ml-md-4 ml-l-5 mt-5">
+                <button class="btn" routerLink="signin">SignIn</button>
+              </div>
+            </div>
+    </div>
+</div>

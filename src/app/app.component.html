@@ -1,0 +1,30 @@
+<nav class="blue" *ngIf="!router.url.includes('preview')&&!router.url.includes('dynamic')&&!router.url.includes('dashboard')" [ngClass]="{'homenav':router.url.includes('home')}"> 
+  <div class="nav-wrapper" >
+      <a class="left brand-logo mt-2 ml-2"><img src="../../favicon.ico"></a>
+      <a href="#" class="sidenav-trigger right mr-3" data-target="side"><i class="material-icons hide-on-med-and-up">menu</i></a>
+      <ul class="menus hide-on-small-only" *ngIf="!router.url.includes('users')">
+           <li><a routerLink="home">Home</a></li>
+           <li><a routerLink="templates">Templates</a></li>
+           <li><a herf='#'>About Us</a></li>
+           <li><a herf='#'>Contact Us</a></li>
+           <li>
+            <a class="btn logout" *ngIf="storageLength!=0" style="color:black" (click)="logout()">Logout</a>
+            <a class="btn logout" *ngIf="storageLength==0" style="color:black" (click)="login()">Login</a>
+          </li>
+      </ul>
+      <button *ngIf="!router.url.includes('users') && !router.url.includes('') && !router.url.includes('templates')" class="btn-floating right mt-3 preview" (click)="dynamicpreview()" style="background-color:#65fa51;">
+        <span class="material-icons mt-2">visibility</span>
+      </button>
+  </div>
+</nav>
+<ul *ngIf="!router.url.includes('users')" class="sidenav hide-on-med-and-up" id="side">
+  <li><a routerLink='home'>Home</a></li>
+  <li><a routerLink="templates">Templates</a></li>
+  <li><a herf='#'>About Us</a></li>
+  <li><a herf='#'>Contact Us</a></li>
+  <li>
+    <a class="btn logout" *ngIf="storageLength!=0" style="color:black" (click)="logout()">Logout</a>
+    <a class="btn logout" *ngIf="storageLength==0" style="color:black" (click)="login()">Login</a>
+  </li>
+</ul>
+<router-outlet></router-outlet>
